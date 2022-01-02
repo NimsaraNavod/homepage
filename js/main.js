@@ -39,9 +39,10 @@ const setLinks = () => {
     })
 }
 const setURL = () => {
-    const searchTerm = new String(searchBar.value);
+    const searchTerm = new String(searchBar.value).split(' ').join('+');
+    console.log(searchTerm)
     // console.log(/^(ftp|http|https):\/\/$/.test(searchTerm))
-    window.location = searchTerm;
+    window.location = `https://www.duckduckgo.com/?q=${searchTerm}`;
 }
 
 const setStyleSheets = () => {

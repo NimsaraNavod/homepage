@@ -1,5 +1,13 @@
 /*TODO: implement grid, refactor, add animations and media quaries */
 
+/* @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap'); */
+
+@font-face {
+    font-family: 'Fredoka One';
+    src: url('../assets/FredokaOne-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
 :root{
     --clr-bg:var(--background);
     --clr-fg: var(--foreground);
@@ -10,7 +18,7 @@
     padding: 0;
     box-sizing: border-box;
     color: var(--clr-bg) ;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
+    font-family: 'Fredoka One', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
 }
 body{
     background-color: var(--clr-fg);
@@ -33,17 +41,24 @@ body{
 #greeting{
     height: 20vh;
     font-size: 60px;
+
+    text-shadow: 0 0 10px var(--clr-fg);
 }
 #clock{
     font-size: 32px;
+
+    text-shadow: 0 0 10px var(--clr-fg);
 }
 
 #search{
     height: 10vh;
     margin: 3rem;
     display: flex;
+    overflow: hidden;
 
     background-color: var(--color15);
+    box-shadow: 0 0 5px #333e;
+    border-radius: .5rem;
 }
 
 #search-bar{
@@ -56,8 +71,17 @@ body{
 
 #search-btn{
     width: 3rem;
+    padding: 1rem 2rem;
     border: none;
-    color: var(--clr-bg);
+
+    color: var(--clr-fg);
+    background-color: var(--clr-bg);
+}
+
+#search-bar:focus{
+    outline: none;
+
+
 }
 
 #quick-links{
@@ -83,4 +107,10 @@ body{
 }
 .item{
     width: 80%;
+}
+
+@media screen and (min-width:1000px ){
+    #search{
+    width: 50vw;
+    }
 }

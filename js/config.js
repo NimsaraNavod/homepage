@@ -16,6 +16,11 @@ const getLinks = ()=>{
             title: "Arch Wiki",
             url: "https://wiki.archlinux.org",
             thumbnail: null
+        },
+        {
+            id: 4,
+            title: "YouTube",
+            url: "https://www.youtube.com"
         }]
     }
 

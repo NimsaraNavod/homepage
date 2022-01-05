@@ -8,7 +8,7 @@ const searchBar = document.getElementById("search-bar")
 const searchForm = document.getElementById("search")
 
 const setClock = () => {
-    clock.textContent = new Date().toLocaleTimeString()
+    clock.textContent =`${new Date().toLocaleTimeString()}`;
     setInterval(() => clock.textContent = new Date().toLocaleTimeString(), 1000);
 }
 
@@ -42,6 +42,7 @@ const setURL = () => {
     const searchTerm = new String(searchBar.value).split(' ').join('+');
     console.log(searchTerm)
     // console.log(/^(ftp|http|https):\/\/$/.test(searchTerm))
+    window.alert("going");
     window.location = `https://www.duckduckgo.com/?q=${searchTerm}`;
 }
 

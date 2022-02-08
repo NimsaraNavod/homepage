@@ -1,6 +1,3 @@
-/*
-TODO: Search functionality
-*/
 const clock = document.getElementById("clock");
 const quickLinks = document.getElementById("quick-links");
 const greeting = document.getElementById("greeting");
@@ -8,7 +5,7 @@ const searchBar = document.getElementById("search-bar")
 const searchForm = document.getElementById("search")
 
 const setClock = () => {
-    clock.textContent =`${new Date().toLocaleTimeString()}`;
+    clock.textContent = `${new Date().toLocaleTimeString()}`;
     setInterval(() => clock.textContent = new Date().toLocaleTimeString(), 1000);
 }
 
@@ -27,23 +24,25 @@ const setGreeting = () => {
 }
 
 const setLinks = () => {
-    const links = getLinks();
+        const links = getLinks();
 
-    links.forEach(link => {
-        let div = document.createElement("div")
-        div.classList.add('link-item', '_center')
-        div.innerHTML = `
-            ${link.thumbnail ? `<img src=${link.thumbnail} alt="Thumbnail" />` : ""}
-            <a href=${link.url}>${link.title}<a/>`;
+        links.forEach(link => {
+                    let div = document.createElement("div")
+                    div.classList.add('link-item', '_center');
+                    div.addEventListener('click', () => window.location.href = link.url)
+                    div.innerHTML = `
+            ${link.thumbnail ? `<img class="link-thumb"src=${link.thumbnail} alt="${link.title}" />` : ""}
+            <a class="link-anchor" href=${link.url}>${link.title}<a/>`;
         quickLinks.appendChild(div);
     })
 }
 const setURL = () => {
     const searchTerm = new String(searchBar.value).split(' ').join('+');
-    console.log(searchTerm)
-    // console.log(/^(ftp|http|https):\/\/$/.test(searchTerm))
-    window.alert("going");
-    window.location = `https://www.duckduckgo.com/?q=${searchTerm}`;
+    searchForm.classList.add("clicked");
+    isValidURL = new RegExp(/[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi).test(searchBar.value);
+    isProtocolSpecified = new RegExp(/^(?:(ht|f)tp(s?)\:\/\/).+/i).test(searchBar.value) && isValidURL;
+    let URL = (isValidURL ? ( isProtocolSpecified ? searchBar.value : `https://${searchBar.value}` ) : `https://www.duckduckgo.com/?q=${searchTerm}`);
+    window.location = URL;
 }
 
 const setStyleSheets = () => {
@@ -64,6 +63,10 @@ const setBackground = () => {
     document.getElementsByTagName("body")[0].style.backgroundImage = BackgroundImageOverridePath ? `url(${BackgroundImageOverridePath})` : "var(--wallpaper)"
 }
 
+const fetchThumbnailsFromLinks = () => {
+    //TODO: implement this;
+}
+
 const main = () => {
     setStyleSheets();
     searchBar.placeholder = searchBarPlaceHolder
@@ -71,6 +74,7 @@ const main = () => {
     setGreeting();
     setLinks();
     setBackground();
+    fetchThumbnailsFromLinks();
     searchForm.addEventListener('submit', (e) => {
         e.preventDefault()
         setURL();

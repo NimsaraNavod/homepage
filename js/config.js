@@ -36,6 +36,12 @@ const getLinks = () => {
         },
         {
             id: 7,
+            title: "CodeWars",
+            url: "https://www.codewars.com",
+            thumbnail: "https://raw.githubusercontent.com/codewars/branding/master/light-text-logo.png"
+        },
+        {
+            id: 8,
             title: "C++ Reference",
             url: "https://en.cppreference.com/w/",
             thumbnail: null
@@ -44,7 +50,7 @@ const getLinks = () => {
 }
 
 const uName = "Nimsara" //User's Name here
-const $USER = "nimz" //Value of the $USER variable
-const colorSheetPath = `/home/${$USER}/.cache/wal/colors.css`
+const user = "nimz" //Value of the $USER variable
+const colorSheetPath = `/home/${user}/.cache/wal/colors.css`
 const BackgroundImageOverridePath = "" //`/home/${$USER}/bg.jpg` //Empty for system wallpaper 
 const searchBarPlaceHolder = "Search the web or type a web address"

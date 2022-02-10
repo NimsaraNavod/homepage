@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+:root {
+    --clr-bg: #000;
+    --clr-fg: #0e0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Press Start 2P', cursive;
+}
+
+#container {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: var(--clr-bg);
+    color: var(--clr-fg);
+}
+
+#search-bar {
+    background: transparent;
+    color: var(--clr-fg);
+    border: none;
+    outline: none;
+}
